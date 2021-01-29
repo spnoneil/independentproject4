@@ -31,7 +31,7 @@ $(document).ready(function() {
     let toppings = topping1 + topping2;
     let pizza = new Pizza(size, toppings);
     pizza.costCalculator();
-    $("#output").text(pizza.price);
-
+    $("#pizzaOutput").text(pizza.price);
+    $("#output").show();
   })
 })
