@@ -16,3 +16,7 @@ li {
   color: chartreuse;
   background-color: rgb(89, 89, 247);
 }
+
+#inputFields {
+  display: block;
+}

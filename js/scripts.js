@@ -1,12 +1,14 @@
 // ORDER Business Logic
 function OrderObj() {
   this.pizza = {};
+  this.totalPrice = 0;
   this.orderId = 0;
 }
 
 OrderObj.prototype.pizzaOrder = function(pizza) {
   pizza.id = this.assignID();
   this.pizza[pizza.id] = pizza;
+  this.totalPrice += pizza.price;
 }
 
 OrderObj.prototype.assignID = function() {
@@ -45,6 +47,7 @@ PizzaObj.prototype.costCalculator = function() {
   }
 }
 
+
 //USER Business Logic
 let order = new OrderObj();
 
@@ -71,24 +74,15 @@ function showDetails() {
 }
 
 function orderPizzas() {
-  $("#orderBtn").click(function() {
+  $("button#orderBtn").click(function() {
+    console.log("HI")
     $("#pizzaform").reset();
-    $("#clearOutput").innerHTML = '';
-    // $("#pizzaDetails, #pizzaOutput").innerHtml("")
+    $("#inputFields").hide();
   })
 }
 
+
 //USER Interface Logic
-// $(document).ready(function() {
-//   $("#pizzaForm").submit(function(e) {
-//     e.preventDefault();
-
-
-
-//   })
-// })
-
-
 
 
 
@@ -101,14 +95,17 @@ $(document).ready(function() {
     let topping2 = parseInt($("#pizzaTopping2").val());
     let toppings = topping1 + topping2;
     let pizza = new PizzaObj(size, toppings);
-    console.log(pizza)
-    console.log(order)
     pizza.costCalculator();
     order.pizzaOrder(pizza);
     showPizzas(order);
-    orderPizzas();
-    // $("#pizzaOutput").text(pizza.price);
-    // $("#output").show();
-    // console.log(showPizzas(pizza))
+  })
+
+  $("button#orderBtn").click(function() {
+    $("#inputFields, #clearOutput").hide();
+    $("#output").show()
+    $("#orderOutput").text(order.totalPrice)
+  })
+  $("#goBack").click(function() {
+    location.reload();
   })
 })
