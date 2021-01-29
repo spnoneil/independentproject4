@@ -32,9 +32,11 @@ OrderObj.prototype.deletePizza = function(id) {
 }
 
 //PIZZA Business Logic
-function PizzaObj(size, toppings) {
+function PizzaObj(name, toppings, size, value) {
+  this.name = name
+  this.toppings - toppings;
   this.size = size;
-  this.toppings = toppings;
+  this.value = value;
   this.price = 10;
 }
 
@@ -46,11 +48,11 @@ PizzaObj.prototype.costCalculator = function() {
   } else if (this.size === 4) {
     this.price += 6;
   }
-  if (this.toppings > 0 && this.toppings < 3) {
+  if (this.value > 0 && this.value < 3) {
     this.price += 1;
-  } else if (this.toppings >= 3 && this.toppings < 6) {
+  } else if (this.value >= 3 && this.value < 6) {
     this.price += 2;
-  } else if (this.toppings >= 6) {
+  } else if (this.value >= 6) {
     this.price += 4;
   }
 }
@@ -74,7 +76,6 @@ function showPizzas(order) {
 function showDetails() {
   $("#pizzaOutput").on("click", "li", function() {
     $("#pizzaDetails").show();
-
     $("li").click(function() {
       $("li").removeClass("addClass");
       $(this).addClass("addClass");
@@ -99,19 +100,26 @@ $(document).ready(function() {
   $("#pizzaForm").submit(function(e) {
     e.preventDefault();
     let size = parseInt($("#pizzaSize").val());
-    let topping1 = parseInt($("#pizzaTopping1").val());
-    let topping2 = parseInt($("#pizzaTopping2").val());
-    let toppings = topping1 + topping2;
-    let pizza = new PizzaObj(size, toppings);
+    let toppingValue1 = parseInt($("#pizzaTopping1").val());
+    let toppingValue2 = parseInt($("#pizzaTopping2").val());
+    let toppingValues = toppingValue1 + toppingValue2;
+    let pizSize = $("#pizzaSize option:selected").text();
+    let pizTop1 = $("#pizzaTopping1 option:selected").text();
+    let pizTop2 = $("#pizzaTopping2 option:selected").text();
+    let pizTop = pizTop1 + " & " + pizTop2;
+    let pizza = new PizzaObj(pizSize, pizTop, size, toppingValues);
+    console.log(pizza)
     pizza.costCalculator();
     order.pizzaOrder(pizza);
     showPizzas(order);
   })
 
   $("button#orderBtn").click(function() {
+    let name = $("#nameInput").val();
     $("#inputFields, #clearOutput").hide();
     $("#output").show()
     $("#orderOutput").text(order.totalPrice)
+    $("#nameOutput").text(name);
   })
   $("#goBack").click(function() {
     location.reload();
