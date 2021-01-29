@@ -13,19 +13,18 @@ Stretch goals: complicated arithmetic for calculating cost, time/date order inpu
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-| **function Pizza()** | let pizza = new Pizza("Large", "Pepperoni, Peppers, Olives") | pizza = { size: "Large", toppings: "Pepperoni, Peppers, Olives" } |
+| **function PizzaObj()** | let pizza = new Pizza("Large", "Pepperoni, Peppers, Olives") | pizza = { size: "Large", toppings: "Pepperoni, Peppers, Olives" } |
 | **Pizza.prototype.costCalculate** | pizza.costCalculate() | pizza = { size: "Large", toppings: "Pepperoni, Peppers, Olives", price: 15} |
-| **function Order()** | let order = new Order() | order = { ... } |
+| **function OrderObj()** | let order = new Order() | order = { ... } |
 | **Pizza.prototype.assignId** | pizza.assignId() | pizza = { size: ..., toppings: ..., id = 1++ } |
 | findByID() | Order.findByID(1) | pizza { ... }
-| showPizza() |
 
 ## Setup/Installation Requirements
 
 1. Download/clone from GitHub
 2. Unzip, if necessary; open local folder
 3. Run index.html in browser of choice
-4. Alternatively, view on GitHub Pages
+4. Alternatively, view on [GitHub Pages](https://github.com/spnoneil/independentproject4)
 
 ## Known Bugs
 * No known bugs at this time.
@@ -44,4 +43,4 @@ _Email no one with any questions, comments, or concerns._
 
 *{This software is licensed under the MIT license}*
 
-Copyright (c) 2021 **_{Scott O'Neil}_**
+Copyright (c) 2021 **_{[Scott O'Neil](https://github.com/spnoneil)}_**
