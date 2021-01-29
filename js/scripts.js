@@ -14,6 +14,13 @@ Order.prototype.assignID = function() {
   return this.orderId;
 }
 
+Order.prototype.findByID = function(id) {
+  if (this.pizza[id] != undefined) {
+    return this.pizza[id];
+  }
+  return false;
+}
+
 //PIZZA Business Logic
 function Pizza(size, toppings) {
   this.size = size;
@@ -40,33 +47,42 @@ Pizza.prototype.costCalculator = function() {
 
 //USER Business Logic
 let order = new Order();
-let pizzaOutput = $("#pizzaOutput");
 
+function showPizzas(order) {
+  let pizzaOutput = $("#pizzaOutput");
+  let pizzaHTML = "";
+  Object.keys(order.pizza).forEach(function(key) {
+    const pizza = order.findByID(key);
+    pizzaHTML += "<li id=" + pizza.id + ">" + contact.size + " " + contact.toppings + "</li>";
+  });
+  pizzaOutput.html(pizzaHTML);
+}
 
 //USER Interface Logic
-$(document).ready(function() {
-  $("#pizzaForm").submit(function(e) {
-    e.preventDefault();
-
-
-
-  })
-})
-
-
-
-
-
 // $(document).ready(function() {
 //   $("#pizzaForm").submit(function(e) {
 //     e.preventDefault();
-//     let size = parseInt($("#pizzaSize").val());
-//     let topping1 = parseInt($("#pizzaTopping1").val());
-//     let topping2 = parseInt($("#pizzaTopping2").val());
-//     let toppings = topping1 + topping2;
-//     let pizza = new Pizza(size, toppings);
-//     pizza.costCalculator();
-//     $("#pizzaOutput").text(pizza.price);
-//     $("#output").show();
+
+
+
 //   })
 // })
+
+
+
+
+
+$(document).ready(function() {
+  $("#pizzaForm").submit(function(e) {
+    e.preventDefault();
+    let size = parseInt($("#pizzaSize").val());
+    let topping1 = parseInt($("#pizzaTopping1").val());
+    let topping2 = parseInt($("#pizzaTopping2").val());
+    let toppings = topping1 + topping2;
+    let pizza = new Pizza(size, toppings);
+    pizza.costCalculator();
+    $("#pizzaOutput").text(pizza.price);
+    $("#output").show();
+    console.log(showPizzas(pizza))
+  })
+})
