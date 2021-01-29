@@ -61,7 +61,8 @@ function showPizzas(order) {
 
 function showDetails() {
   $("#pizzaOutput").on("click", "li", function() {
-
+    $("#pizzaDetails").show();
+    $("li#^1").addClass("addClass")
   })
 }
 
