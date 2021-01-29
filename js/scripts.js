@@ -23,6 +23,14 @@ OrderObj.prototype.findByID = function(id) {
   return false;
 }
 
+OrderObj.prototype.deletePizza = function(id) {
+  if (this.pizza[id] === undefined) {
+    return false;
+  }
+  delete this.pizza[id];
+  return true;
+}
+
 //PIZZA Business Logic
 function PizzaObj(size, toppings) {
   this.size = size;
@@ -66,6 +74,7 @@ function showPizzas(order) {
 function showDetails() {
   $("#pizzaOutput").on("click", "li", function() {
     $("#pizzaDetails").show();
+
     $("li").click(function() {
       $("li").removeClass("addClass");
       $(this).addClass("addClass");
@@ -83,7 +92,6 @@ function orderPizzas() {
 
 
 //USER Interface Logic
-
 
 
 $(document).ready(function() {
