@@ -1,4 +1,5 @@
-#output {
+#output,
+#orderBtn {
   display: none;
 }
 
@@ -7,6 +8,11 @@
   display: none;
 }
 
+li {
+  cursor: pointer;
+}
+
 .addClass {
-  background-color: blue;
+  color: chartreuse;
+  background-color: rgb(89, 89, 247);
 }

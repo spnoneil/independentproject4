@@ -57,12 +57,24 @@ function showPizzas(order) {
     pizzaHTML += "<li id=" + pizza.id + ">" + individualPizza++ + "</li>";
   });
   pizzaOutput.html(pizzaHTML);
+  $("#orderBtn").show();
 }
 
 function showDetails() {
   $("#pizzaOutput").on("click", "li", function() {
     $("#pizzaDetails").show();
-    $("li#^1").addClass("addClass")
+    $("li").click(function() {
+      $("li").removeClass("addClass");
+      $(this).addClass("addClass");
+    })
+  })
+}
+
+function orderPizzas() {
+  $("#orderBtn").click(function() {
+    $("#pizzaform").reset();
+    $("#clearOutput").innerHTML = '';
+    // $("#pizzaDetails, #pizzaOutput").innerHtml("")
   })
 }
 
@@ -94,6 +106,7 @@ $(document).ready(function() {
     pizza.costCalculator();
     order.pizzaOrder(pizza);
     showPizzas(order);
+    orderPizzas();
     // $("#pizzaOutput").text(pizza.price);
     // $("#output").show();
     // console.log(showPizzas(pizza))
