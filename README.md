@@ -17,6 +17,8 @@ Stretch goals: complicated arithmetic for calculating cost, time/date order inpu
 | **Pizza.prototype.costCalculate** | pizza.costCalculate() | pizza = { size: "Large", toppings: "Pepperoni, Peppers, Olives", price: 15} |
 | **function Order()** | let order = new Order() | order = { ... } |
 | **Pizza.prototype.assignId** | pizza.assignId() | pizza = { size: ..., toppings: ..., id = 1++ } |
+| findByID() | Order.findByID(1) | pizza { ... }
+| showPizza() |
 
 ## Setup/Installation Requirements
 

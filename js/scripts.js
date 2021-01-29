@@ -1,20 +1,20 @@
 // ORDER Business Logic
-function Order() {
+function OrderObj() {
   this.pizza = {};
   this.orderId = 0;
 }
 
-Order.prototype.pizzaOrder = function(pizza) {
+OrderObj.prototype.pizzaOrder = function(pizza) {
   pizza.id = this.assignID();
   this.pizza[pizza.id] = pizza;
 }
 
-Order.prototype.assignID = function() {
+OrderObj.prototype.assignID = function() {
   this.orderId += 1;
   return this.orderId;
 }
 
-Order.prototype.findByID = function(id) {
+OrderObj.prototype.findByID = function(id) {
   if (this.pizza[id] != undefined) {
     return this.pizza[id];
   }
@@ -22,13 +22,13 @@ Order.prototype.findByID = function(id) {
 }
 
 //PIZZA Business Logic
-function Pizza(size, toppings) {
+function PizzaObj(size, toppings) {
   this.size = size;
   this.toppings = toppings;
   this.price = 10;
 }
 
-Pizza.prototype.costCalculator = function() {
+PizzaObj.prototype.costCalculator = function() {
   if (this.size === 2) {
     this.price += 1;
   } else if (this.size === 3) {
@@ -46,16 +46,23 @@ Pizza.prototype.costCalculator = function() {
 }
 
 //USER Business Logic
-let order = new Order();
+let order = new OrderObj();
 
 function showPizzas(order) {
   let pizzaOutput = $("#pizzaOutput");
   let pizzaHTML = "";
+  let individualPizza = 1;
   Object.keys(order.pizza).forEach(function(key) {
     const pizza = order.findByID(key);
-    pizzaHTML += "<li id=" + pizza.id + ">" + contact.size + " " + contact.toppings + "</li>";
+    pizzaHTML += "<li id=" + pizza.id + ">" + individualPizza++ + "</li>";
   });
   pizzaOutput.html(pizzaHTML);
+}
+
+function showDetails() {
+  $("#pizzaOutput").on("click", "li", function() {
+
+  })
 }
 
 //USER Interface Logic
@@ -73,16 +80,21 @@ function showPizzas(order) {
 
 
 $(document).ready(function() {
+  showDetails()
   $("#pizzaForm").submit(function(e) {
     e.preventDefault();
     let size = parseInt($("#pizzaSize").val());
     let topping1 = parseInt($("#pizzaTopping1").val());
     let topping2 = parseInt($("#pizzaTopping2").val());
     let toppings = topping1 + topping2;
-    let pizza = new Pizza(size, toppings);
+    let pizza = new PizzaObj(size, toppings);
+    console.log(pizza)
+    console.log(order)
     pizza.costCalculator();
-    $("#pizzaOutput").text(pizza.price);
-    $("#output").show();
-    console.log(showPizzas(pizza))
+    order.pizzaOrder(pizza);
+    showPizzas(order);
+    // $("#pizzaOutput").text(pizza.price);
+    // $("#output").show();
+    // console.log(showPizzas(pizza))
   })
 })
