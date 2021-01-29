@@ -7,17 +7,22 @@
 
 A website created with HTML and Javascript where a user can input a preferred pizza type/style and receive a cost
 
-Stretch goals: complicated arithmetic, 
+Stretch goals: complicated arithmetic for calculating cost, time/date order input, premade pizza?, select multiple toppings, delivery/pickup
 
 
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | **function Pizza()** | let pizza = new Pizza("Large", "Pepperoni, Peppers, Olives") | pizza = { size: "Large", toppings: "Pepperoni, Peppers, Olives" } |
+| **Pizza.prototype.costCalculate** | pizza.costCalculate() | pizza = { size: "Large", toppings: "Pepperoni, Peppers, Olives", price: 15} |
+
 
 ## Setup/Installation Requirements
 
-
+1. Download/clone from GitHub
+2. Unzip, if necessary; open local folder
+3. Run index.html in browser of choice
+4. Alternatively, view on GitHub Pages
 
 ## Known Bugs
 * No known bugs at this time.
