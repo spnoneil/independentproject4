@@ -75,16 +75,15 @@ function showPizzas(order) {
 
 function showDetails() {
   $("#pizzaOutput").on("click", "li", function() {
-    $("#pizzaDetails").show();
-    $("li").removeClass("addClass");
-    $(this).addClass("addClass");
-    $("#sizeOutput").text(Pizza.size)
-  })
-  $("#delete").click(function() {
-    order.deletePizza(this.id);
-    $("#pizzaDetails").hide();
-    showPizzas(order);
-  })
+      $("#pizzaDetails").show();
+      $("li").removeClass("addClass");
+      $(this).addClass("addClass");
+    })
+    // $("#delete").click(function() {
+    //   order.deletePizza(this.id);
+    //   $("#pizzaDetails").hide();
+    //   showPizzas(order);
+    // })
 }
 
 function orderPizzas() {
