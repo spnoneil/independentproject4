@@ -34,7 +34,7 @@ OrderObj.prototype.deletePizza = function(id) {
 //PIZZA Business Logic
 function PizzaObj(name, toppings, size, value) {
   this.name = name
-  this.toppings - toppings;
+  this.toppings = toppings;
   this.size = size;
   this.value = value;
   this.price = 10;
@@ -67,7 +67,7 @@ function showPizzas(order) {
   let individualPizza = 1;
   Object.keys(order.pizza).forEach(function(key) {
     const pizza = order.findByID(key);
-    pizzaHTML += "<li id=" + pizza.id + ">" + individualPizza++ + "</li>";
+    pizzaHTML += "<li id=" + pizza.id + ">" + "Pizza " + individualPizza++ + "</li>";
   });
   pizzaOutput.html(pizzaHTML);
   $("#orderBtn").show();
@@ -76,37 +76,39 @@ function showPizzas(order) {
 function showDetails() {
   $("#pizzaOutput").on("click", "li", function() {
     $("#pizzaDetails").show();
-    $("li").click(function() {
-      $("li").removeClass("addClass");
-      $(this).addClass("addClass");
-    })
+    $("li").removeClass("addClass");
+    $(this).addClass("addClass");
+    $("#sizeOutput").text(Pizza.size)
+  })
+  $("#delete").click(function() {
+    order.deletePizza(this.id);
+    $("#pizzaDetails").hide();
+    showPizzas(order);
   })
 }
 
 function orderPizzas() {
   $("button#orderBtn").click(function() {
-    console.log("HI")
     $("#pizzaform").reset();
     $("#inputFields").hide();
   })
 }
 
-
 //USER Interface Logic
 
 
 $(document).ready(function() {
-  showDetails()
+  showDetails();
   $("#pizzaForm").submit(function(e) {
     e.preventDefault();
     let size = parseInt($("#pizzaSize").val());
     let toppingValue1 = parseInt($("#pizzaTopping1").val());
     let toppingValue2 = parseInt($("#pizzaTopping2").val());
     let toppingValues = toppingValue1 + toppingValue2;
-    let pizSize = $("#pizzaSize option:selected").text();
+    let pizSize = "Size: " + $("#pizzaSize option:selected").text();
     let pizTop1 = $("#pizzaTopping1 option:selected").text();
     let pizTop2 = $("#pizzaTopping2 option:selected").text();
-    let pizTop = pizTop1 + " & " + pizTop2;
+    let pizTop = "Toppings: " + pizTop1 + " & " + pizTop2;
     let pizza = new PizzaObj(pizSize, pizTop, size, toppingValues);
     console.log(pizza)
     pizza.costCalculator();
