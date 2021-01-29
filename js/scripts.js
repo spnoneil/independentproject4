@@ -1,9 +1,18 @@
+function Order() {
+  this.pizza = {};
+  this.orderId = 0;
+}
+
+Order.prototype.assignID = function() {
+  this.orderId += 1;
+  return this.orderId;
+}
+
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
   this.price = 10;
 }
-
 Pizza.prototype.costCalculator = function() {
   if (this.size === 2) {
     this.price += 1;
