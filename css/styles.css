@@ -3,6 +3,10 @@ body {
   color: crimson;
 }
 
+.jumbotron {
+  background-image: url("../img/pizzalrg.jpg");
+}
+
 #output,
 #orderBtn {
   display: none;
@@ -38,4 +42,16 @@ li {
 
 #inputFields {
   display: block;
+}
+
+.footer {
+  text-align: center;
+  font-size: large;
+  color: rgb(255, 255, 255);
+  height: 40px;
+  width: 100%;
+  background-color: rgb(82, 12, 12);
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
