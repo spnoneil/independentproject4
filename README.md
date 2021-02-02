@@ -27,7 +27,7 @@ Stretch goals: complicated arithmetic for calculating cost, time/date order inpu
 4. Alternatively, view on [GitHub Pages](https://github.com/spnoneil/independentproject4)
 
 ## Known Bugs
-* No known bugs at this time.
+* Delete button functionality not currently working
 
 ## Technologies Used
 * HTML
