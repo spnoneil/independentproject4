@@ -26,7 +26,11 @@ Stretch goals: complicated arithmetic for calculating cost, time/date order inpu
 3. Run index.html in browser of choice
 
 ## Known Bugs
+<<<<<<< HEAD
 * Delete button not currently working
+=======
+* Delete button functionality not currently working
+>>>>>>> 13b4d987d574815042ba851f429869507854bb82
 
 ## Technologies Used
 * HTML
