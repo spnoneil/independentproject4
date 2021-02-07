@@ -26,11 +26,7 @@ Stretch goals: complicated arithmetic for calculating cost, time/date order inpu
 3. Run index.html in browser of choice
 
 ## Known Bugs
-<<<<<<< HEAD
-* Delete button not currently working
-=======
-* Delete button functionality not currently working
->>>>>>> 13b4d987d574815042ba851f429869507854bb82
+* No known bugs
 
 ## Technologies Used
 * HTML
@@ -44,6 +40,6 @@ _Email no one with any questions, comments, or concerns._
 
 ### License
 
-*{This software is licensed under the MIT license}*
+*This software is licensed under the MIT license*
 
 Copyright (c) 2021 **_{[Scott O'Neil](https://github.com/spnoneil)}_**
