@@ -57,9 +57,7 @@ PizzaObj.prototype.costCalculator = function() {
   }
 }
 
-
-//USER Business Logic
-let order = new OrderObj();
+//USER Interface Logic
 
 function showPizzas(order) {
   let pizzaOutput = $("#pizzaOutput");
@@ -75,28 +73,14 @@ function showPizzas(order) {
 
 function showDetails() {
   $("#pizzaOutput").on("click", "li", function() {
-      $("#pizzaDetails").show();
-      $("li").removeClass("addClass");
-      $(this).addClass("addClass");
-    })
-    // $("#delete").click(function() {
-    //   order.deletePizza(this.id);
-    //   $("#pizzaDetails").hide();
-    //   showPizzas(order);
-    // })
-}
-
-function orderPizzas() {
-  $("button#orderBtn").click(function() {
-    $("#pizzaform").reset();
-    $("#inputFields").hide();
+    $("#pizzaDetails").show();
+    $("li").removeClass("addClass");
+    $(this).addClass("addClass");
   })
 }
 
-//USER Interface Logic
-
-
 $(document).ready(function() {
+  let order = new OrderObj();
   showDetails();
   $("#pizzaForm").submit(function(e) {
     e.preventDefault();
@@ -109,7 +93,6 @@ $(document).ready(function() {
     let pizTop2 = $("#pizzaTopping2 option:selected").text();
     let pizTop = "Toppings: " + pizTop1 + " & " + pizTop2;
     let pizza = new PizzaObj(pizSize, pizTop, size, toppingValues);
-    console.log(pizza)
     pizza.costCalculator();
     order.pizzaOrder(pizza);
     showPizzas(order);

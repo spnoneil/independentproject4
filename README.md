@@ -24,10 +24,9 @@ Stretch goals: complicated arithmetic for calculating cost, time/date order inpu
 1. Download/clone from GitHub
 2. Unzip, if necessary; open local folder
 3. Run index.html in browser of choice
-4. Alternatively, view on [GitHub Pages](https://github.com/spnoneil/independentproject4)
 
 ## Known Bugs
-* No known bugs at this time.
+* Delete button not currently working
 
 ## Technologies Used
 * HTML
